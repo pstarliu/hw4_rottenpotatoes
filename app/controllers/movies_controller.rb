@@ -30,6 +30,10 @@ class MoviesController < ApplicationController
     @movies = Movie.find_all_by_rating(@selected_ratings.keys, ordering)
   end
 
+  def search_by_director
+    @movies = Movies.find_all_by_director(params[:by_director]) if params[:by_director]
+  end
+
   def new
     # default: render 'new' template
   end
