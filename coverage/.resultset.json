@@ -97,16 +97,16 @@
   },
   "RSpec": {
     "coverage": {
-      "/home/saasbook/Documents/Hw/hw4_rottenpotatoes/app/controllers/application_controller.rb": [
+      "/home/saasbook/Desktop/Hw/hw4_rottenpotatoes/app/controllers/application_controller.rb": [
         1,
         1,
         null
       ],
-      "/home/saasbook/Documents/Hw/hw4_rottenpotatoes/app/helpers/application_helper.rb": [
+      "/home/saasbook/Desktop/Hw/hw4_rottenpotatoes/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/Documents/Hw/hw4_rottenpotatoes/app/helpers/movies_helper.rb": [
+      "/home/saasbook/Desktop/Hw/hw4_rottenpotatoes/app/helpers/movies_helper.rb": [
         1,
         null,
         1,
@@ -114,7 +114,7 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/Hw/hw4_rottenpotatoes/app/controllers/movies_controller.rb": [
+      "/home/saasbook/Desktop/Hw/hw4_rottenpotatoes/app/controllers/movies_controller.rb": [
         1,
         null,
         1,
@@ -148,9 +148,8 @@
         null,
         null,
         1,
-        1,
-        null,
-        0,
+        2,
+        2,
         null,
         null,
         1,
@@ -183,7 +182,7 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/Hw/hw4_rottenpotatoes/app/models/movie.rb": [
+      "/home/saasbook/Desktop/Hw/hw4_rottenpotatoes/app/models/movie.rb": [
         1,
         1,
         0,
@@ -191,6 +190,6 @@
         null
       ]
     },
-    "timestamp": 1332868885
+    "timestamp": 1332885153
   }
 }
