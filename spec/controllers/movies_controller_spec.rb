@@ -31,4 +31,32 @@ describe MoviesController do
       end
     end
   end
+
+  describe 'show' do
+    fixtures :movies
+    before :each do
+      @fake_movie = movies(:star_wars_movie)
+      @fake_sad_movie = movies(:alien_movie)
+      @fake_results = [movies(:star_wars_movie), movies(:thx_1138_movie)]
+    end
+    it 'should call the model method that performs search movies with id' do
+      Movie.should_receive(:find).with(@fake_movie.id).
+        and_return(@fake_movie)
+      id = @fake_movie.id
+      post :show, {:id => id}
+    end
+  end
+
+  describe 'create' do
+    fixtures :movies
+    before :each do
+      @fake_new_movie = movies(:new_movie)
+    end
+    it 'should call the modle model method performe create' do
+      fake_new_movie = mock('Movie')
+      Movie.should_receive(:create!).with(@fake_new_movie)
+      post :create, {:movie => @fake_new_movie}
+    end
+  end
 end
+
