@@ -10,3 +10,9 @@ star_wars_movie:
   rating: pG
   release_date: 1977-05-25
   director: George Lucas
+
+thx_1138_movie:
+  id: 4
+  title: THX-1138
+  release_date: 1971-03-11
+  director: George Lucas

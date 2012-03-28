@@ -28,31 +28,32 @@
         null,
         null,
         1,
-        2,
-        2,
+        0,
+        0,
         null,
         0,
         null,
         0,
         null,
-        2,
-        2,
-        null,
-        2,
         0,
         0,
         null,
-        null,
-        2,
         0,
         0,
         0,
         null,
-        2,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
         null,
         null,
         1,
-        0,
+        2,
+        2,
         null,
         null,
         1,
@@ -88,12 +89,12 @@
       "/home/saasbook/Desktop/Hw/hw4_rottenpotatoes/app/models/movie.rb": [
         1,
         1,
-        2,
+        0,
         null,
         null
       ]
     },
-    "timestamp": 1332800037
+    "timestamp": 1332896928
   },
   "RSpec": {
     "coverage": {
@@ -148,8 +149,8 @@
         null,
         null,
         1,
-        2,
-        2,
+        3,
+        3,
         null,
         null,
         1,
@@ -190,6 +191,6 @@
         null
       ]
     },
-    "timestamp": 1332885153
+    "timestamp": 1332896227
   }
 }

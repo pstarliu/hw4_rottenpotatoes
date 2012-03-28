@@ -5,7 +5,7 @@ describe MoviesController do
     fixtures :movies
     before :each do
       @fake_movie = movies(:star_wars_movie)
-      @fake_results = [mock('Movie'), mock('Movie')]
+      @fake_results = [movies(:star_wars_movie), movies(:thx_1138_movie)]
     end
     it 'should call the model method that performs search movies with same director' do
       Movie.should_receive(:find_all_by_director).with(@fake_movie.director).
@@ -16,8 +16,11 @@ describe MoviesController do
       before :each do
         post :search_similar, {:id => @fake_movie.id}
       end
-    it 'should select the Search Similar Results template for rendering' do
+      it 'should select the Search Similar Results template for rendering' do
         response.should render_template('search_similar')
+      end
+      it 'should make the search similar results available to that template' do
+        assigns(:movies).should == @fake_results
       end
     end
   end
