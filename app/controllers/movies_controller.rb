@@ -32,7 +32,13 @@ class MoviesController < ApplicationController
 
   def search_similar
     @movie = Movie.find params[:id]
-    @movies = Movie.find_all_by_director(@movie.director)
+    director = @movie.director
+    if director
+      @movies = Movie.find_all_by_director(@movie.director)
+    else
+      flash[:notice] = "'#{@movie.title}' has no director info"
+      redirect_to movies_path
+    end
   end
 
   def new
@@ -42,6 +48,7 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.create!(params[:movie])
     flash[:notice] = "#{@movie.title} was successfully created."
+
     redirect_to movies_path
   end
 

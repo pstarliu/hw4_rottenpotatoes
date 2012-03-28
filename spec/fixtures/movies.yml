@@ -16,3 +16,8 @@ thx_1138_movie:
   title: THX-1138
   release_date: 1971-03-11
   director: George Lucas
+
+alien_movie:
+  id: 3
+  title: Alien
+  release_date: 1979-05-25
