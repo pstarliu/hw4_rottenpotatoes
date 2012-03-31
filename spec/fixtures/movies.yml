@@ -7,7 +7,7 @@
 star_wars_movie:
   id: 1
   title: Star Wars
-  rating: pG
+  rating: PG
   release_date: 1977-05-25
   director: George Lucas
 

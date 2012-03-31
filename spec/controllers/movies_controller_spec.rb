@@ -52,9 +52,9 @@ describe MoviesController do
     # before :each do
     #   @fake_new_movie = movies(:new_movie)
     # end
-    it 'should call the modle model method performe create' do
-      Movie.should_receive(:create!).with({"title" => 'Milk', "rating" => 'R'})
-      # post :create, :movie => {:title => "Milk"}
+    it 'should call the modle method performe create' do
+      Movie.should_receive(:create!).with(title: 'Milk', rating: 'R')
+    # post :create, :movie => {:title => "Milk"}
       post :create, :movie => {:title => 'Milk', :rating => 'R'}
     end
   end
