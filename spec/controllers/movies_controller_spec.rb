@@ -55,22 +55,12 @@ describe MoviesController do
   end
 
   describe 'create' do
-<<<<<<< HEAD
-    # fixtures :movies
-    # before :each do
-    #   @fake_new_movie = movies(:new_movie)
-    # end
-    it 'should call the modle method performe create' do
-      Movie.should_receive(:create!).with(title: 'Milk', rating: 'R')
-    # post :create, :movie => {:title => "Milk"}
-=======
     it 'should call the model method performe create!' do
       Movie.should_receive(:create!).with({"title" => 'Milk', "rating" => 'R'})
         .and_return(stub_model(Movie))
       post :create, :movie => {:title => 'Milk', :rating => 'R'}
     end
     it 'should redirected to movies path after create new object' do
->>>>>>> 9ee423691db32526aa52310115691337336f9751
       post :create, :movie => {:title => 'Milk', :rating => 'R'}
       response.should redirect_to movies_path
     end
@@ -94,9 +84,10 @@ describe MoviesController do
     end
     it 'should pass the modle the correct movie need to updated' do
       @fake_movie.rating = 'PG-15'
-      Movie.should_receive(:update_attributes!).with({"title" => @fake_movie.title, "rating" => @fake_movie.rating, "director" => @fake_movie.director}).and_return(stub_model(Movie))
-      post :update, {:id => @fake_movie.id, :movie => {:title => @fake_movie.title,
-          :rating => @fake_movie.rating, :director => @fake_movie.director}}
+      @fake_movie.should_receive(:update_attributes!).with({"title" => @fake_movie.title, "rating" => @fake_movie.rating, "director" => @fake_movie.director})
+        # .and_return(@fake_moive)
+      post :update, :id => @fake_movie.id, :movie => {:title => @fake_movie.title,
+          :rating => @fake_movie.rating, :director => @fake_movie.director}
     end
   end
 end
