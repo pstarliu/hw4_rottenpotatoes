@@ -83,21 +83,20 @@ describe MoviesController do
       @fake_movie = movies(:star_wars_movie)
     end
     it 'should retrive the right movie from Movie model to update' do
-      put :update, :id => @fake_movie.id, :movie => {:title => @fake_movie.title,
-        :rating => @fake_movie.rating, :director => @fake_movie.director}
       Movie.should_receive(:find).with(@fake_movie.id.to_s).and_return(@fake_movie)
-      assigns(:movie).should == @fake_movie
-      put :update, :id => @fake_movie.id, :movie => {:title => @fake_movie.title,
-        :rating => @fake_movie.rating, :director => @fake_movie.director}
+      put :update, :id => @fake_movie.id, :movie => {:rating => @fake_movie.rating}
     end
 
-    it 'should pass specified movie object the correct fields to updated' do
+    it 'should prepare the movie object avaliable for update' do
+      put :update, :id => @fake_movie.id, :movie => {:rating => @fake_movie.rating}
+      assigns(:movie).should == @fake_movie
+    end
+
+    it 'should pass movie object the new attribute value to updated' do
       fake_new_rating = 'PG-15'
-      put :update, :id => @fake_movie.id, :movie => {:title => @fake_movie.title,
-        :rating => fake_new_rating, :director => @fake_movie.director}
-      @fake_movie.should_receive(:update_attributes!).with({"title" => @fake_movie.title, "rating" => fake_new_rating, "director" => @fake_movie.director}).and_return(:true)
-      put :update, :id => @fake_movie.id, :movie => {:title => @fake_movie.title,
-        :rating => fake_new_rating, :director => @fake_movie.director}
+      @fake_movie.stub(:update_attributes!).with("rating" => fake_new_rating).and_return(:true)
+      put :update, :id => @fake_movie.id, :movie => {:rating => fake_new_rating}
+      @fake_movie.should_receive(:update_attributes!).with("rating" => fake_new_rating).and_return(:true)
     end
   end
 end
