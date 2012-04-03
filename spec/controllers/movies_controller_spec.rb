@@ -94,9 +94,9 @@ describe MoviesController do
 
     it 'should pass movie object the new attribute value to updated' do
       fake_new_rating = 'PG-15'
-      @fake_movie.stub(:update_attributes!).with("rating" => fake_new_rating).and_return(:true)
-      put :update, :id => @fake_movie.id, :movie => {:rating => fake_new_rating}
+      Movie.stub(:find).and_return(@fake_movie)
       @fake_movie.should_receive(:update_attributes!).with("rating" => fake_new_rating).and_return(:true)
+      put :update, :id => @fake_movie.id, :movie => {:rating => fake_new_rating}
     end
   end
 end
