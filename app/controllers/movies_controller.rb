@@ -16,7 +16,6 @@ class MoviesController < ApplicationController
     end
     @all_ratings = Movie.all_ratings
     @selected_ratings = params[:ratings] || session[:ratings] || {}
-
     if params[:sort] != session[:sort]
       session[:sort] = sort
       redirect_to :sort => sort, :ratings => @selected_ratings and return

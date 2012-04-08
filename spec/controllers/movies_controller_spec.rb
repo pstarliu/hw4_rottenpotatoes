@@ -99,5 +99,50 @@ describe MoviesController do
       put :update, :id => @fake_movie.id, :movie => {:rating => fake_new_rating}
     end
   end
+
+  describe 'index' do
+    fixtures :movies
+    before :each do
+      @star_wars = movies(:star_wars_movie)
+      @thx = movies(:thx_1138_movie)
+    end
+    it 'should select the index movie template for rendering' do
+      post :index
+      response.should render_template('index')
+    end
+    it "should sort by 'title' when :sort is 'title'" do
+      session[:sort] = 'title'
+      Movie.should_receive(:find_all_by_rating).
+        with(anything(), {:order => :title})
+      post :index, :sort => 'title'
+    end
+    it "should sort by 'release_date' when :sort is 'release_date'" do
+      session[:sort] = 'release_date'
+      Movie.should_receive(:find_all_by_rating).
+        with(anything(), {:order => :release_date})
+      post :index, :sort => 'release_date'
+    end
+    it 'should save new sort parameter in session and reset the query' do
+      session[:sort] = 'title'
+      post :index, :sort => 'release_date'
+      session[:sort].should == 'release_date'
+    end
+    it 'should save and reset new rating query variable when new rating parameter received' do
+      session[:ratings] = 'R'
+      post :index, :ratings => 'PG'
+      session[:ratings].should == 'PG'
+    end
+  end
+  describe 'destroy' do
+    fixtures :movies
+    before :each do
+      @star_wars_movie = movies(:star_wars_movie)
+    end
+    it 'should remove selected movie from collection' do
+      Movie.stub(:find).and_return(@star_wars_movie)
+      @star_wars_movie.should_receive(:destroy).and_return(true)
+      delete :destroy, :id => @star_wars_movie.id
+    end
+  end
 end
 

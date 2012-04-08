@@ -14,6 +14,7 @@ star_wars_movie:
 thx_1138_movie:
   id: 4
   title: THX-1138
+  rating: R
   release_date: 1971-03-11
   director: George Lucas
 
